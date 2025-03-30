@@ -85,9 +85,22 @@ Configure using `./configure` and `make`. Then `make install` as root or using `
 
 TO-DO: Add gaps.
 
-# Getting the old NVIDIA drivers to work
+# Getting the legacy NVIDIA drivers to work **TESTING**
 
-TO-DO
+Install the following dependencies for installing the legacy drivers `apt install build-essential gcc-multilib dkms`
+
+Blacklist Nouveau by creating this file: `/etc/modprobe.d/blacklist-nouveau.conf` and writing the following inside:
+
+```
+blacklist nouveau
+options nouveau modeset=0
+```
+
+Clone the following repository for the patched driver files (we need these patched version because NVIDIA blocked their drivers on the newest kernels.
+
+``git clone -b 340.108 https://github.com/MeowIce/nvidia-legacy``
+
+Check your kernel version and install the appropriate `run` file by making it executable ``chmod +x FILE.run`` and running it `./FILE.run`
 
 # Browser with global menu support (Waterfox)
 
