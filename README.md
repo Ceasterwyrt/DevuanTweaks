@@ -18,7 +18,7 @@ After installing them they'll automatically be added to the startup, you can che
 
 ## Getting wi-fi to work
 
-Add `contrib non-free-firmware non-free` to `/etc/apt/sources.list`
+Add `contrib non-free-firmware non-free` to `/etc/apt/sources.list`, then execute the following commands:
 
 `apt update`
 
@@ -28,7 +28,7 @@ Add `contrib non-free-firmware non-free` to `/etc/apt/sources.list`
 
 `modprobe wl`
 
-If anything goes wrong the manual can be found [here](https://wiki.debian.org/wl).
+Reboot and check your wi-fi. If anything goes wrong the manual can be found [here](https://wiki.debian.org/wl).
 
 ## Global Menu Packages
 
@@ -50,9 +50,9 @@ If anything goes wrong the manual can be found [here](https://wiki.debian.org/wl
 
 `xfconf-query -c xsettings -p /Gtk/Modules -n -t string -s "appmenu-gtk-module"`
 
-## XFWM4 Actually centralised window titles
+## XFWM4 with actual centralised window titles
 
-Something that bugs me a little, we have to patch it ourselves. Download the XFWM4 source files [here](https://archive.xfce.org/src/xfce/xfwm4/4.18/xfwm4-4.18.0.tar.bz2).
+This is something that bugs me a little, and we have to patch it ourselves. Download the XFWM4 source files [here](https://archive.xfce.org/src/xfce/xfwm4/4.18/xfwm4-4.18.0.tar.bz2).
 
 Patch `src/frame.c` like so:
 
@@ -79,7 +79,9 @@ Patch `src/frame.c` like so:
          if (w1 < left)
 ```
 
-Configure using `./configure` and `make`. Then `make install` as root or using `sudo`.
+Install the required packages to build it using `apt build-dep xfwm4`
+
+Configure using `./configure` and `make`. Then `make install` as root or using `sudo`
 
 TO-DO: Add gaps.
 
@@ -96,5 +98,3 @@ TO-DO
 ## Clock stuff
 
 `%a %d %b %R`
-
-
