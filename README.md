@@ -1,6 +1,4 @@
-# Devuan MacBook Pro A1260
-
-MacBook A1260 Setup Commands
+# Installing Devuan on a 2008 MacBook Pro A1260
 
 ## Getting the Devuan image to work
 
@@ -16,7 +14,7 @@ Edit `/etc/default/grub`, adding `nomodeset` to the `GRUB_CMDLINE_LINUX_DEFAULT`
 
 Install `mbpfan` and `macfanctld`
 
-It should add them automatically to the startup, but in case it doesn't, enable them at startup with `rc-update add mbpfan default` and `rc-update add macfanctld default`
+After installing them they'll automatically be added to the startup, you can check it with `rc-update add mbpfan default` and `rc-update add macfanctld default`
 
 ## Getting wi-fi to work
 
