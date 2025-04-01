@@ -10,11 +10,13 @@ Press "e" once GRUB shows up and add `nomodeset` at the end of the kernel line, 
 
 Edit `/etc/default/grub`, adding `nomodeset` to the `GRUB_CMDLINE_LINUX_DEFAULT` line, and update GRUB: `update-grub`
 
+For Linux Mint, adding `tsc=unstable` to the kernel line makes it boot.
+
 ## Getting the fans to work
 
-Install `mbpfan` and `macfanctld`
+Install `macfanctld`
 
-After installing them they'll automatically be added to the startup, you can check it with `rc-update add mbpfan default` and `rc-update add macfanctld default`
+After installing it'll automatically be added to the startup, you can check it with `rc-update add macfanctld default`
 
 ## Getting wi-fi to work
 
@@ -83,9 +85,19 @@ Install the required packages to build it using `apt build-dep xfwm4`
 
 Configure using `./configure` and `make`. Then `make install` as root or using `sudo`
 
-TO-DO: Add gaps.
+TO-DO: Add gaps (preference).
 
-# Getting the legacy NVIDIA drivers to work **[TESTING]**
+# Browser with global menu support (Waterfox)
+
+`curl -fsSL https://download.opensuse.org/repositories/home:hawkeye116477:waterfox/Debian_12/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/home_hawkeye116477_waterfox.gpg > /dev/null`
+
+`echo 'deb https://download.opensuse.org/repositories/home:/hawkeye116477:/waterfox/Debian_12/ /' | sudo tee /etc/apt/sources.list.d/home:hawkeye116477:waterfox.list`
+
+## Clock stuff
+
+`%a %d %b %R`
+
+# Getting the legacy NVIDIA drivers to work **[NOT WORKING, USE NOUVEAU INSTEAD]**
 
 Install the following dependencies for installing the legacy drivers `apt install build-essential gcc-multilib dkms`
 
@@ -101,13 +113,3 @@ Clone the following repository for the patched driver files (we need these patch
 ``git clone -b 340.108 https://github.com/MeowIce/nvidia-legacy``
 
 Check your kernel version and install the appropriate `run` file by making it executable ``chmod +x FILE.run`` and running it `./FILE.run`
-
-# Browser with global menu support (Waterfox)
-
-`curl -fsSL https://download.opensuse.org/repositories/home:hawkeye116477:waterfox/Debian_12/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/home_hawkeye116477_waterfox.gpg > /dev/null`
-
-`echo 'deb https://download.opensuse.org/repositories/home:/hawkeye116477:/waterfox/Debian_12/ /' | sudo tee /etc/apt/sources.list.d/home:hawkeye116477:waterfox.list`
-
-## Clock stuff
-
-`%a %d %b %R`
