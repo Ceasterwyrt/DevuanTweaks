@@ -32,6 +32,23 @@ Add `contrib non-free-firmware non-free` to `/etc/apt/sources.list`, then execut
 
 Reboot and check your wi-fi. If anything goes wrong the manual can be found [here](https://wiki.debian.org/wl).
 
+## Getting video acceleration to work
+
+Commands taken directly from https://nouveau.freedesktop.org/VideoAcceleration.html.
+
+Changed the drivers to 340xx.
+
+```
+mkdir /tmp/nouveau
+cd /tmp/nouveau
+wget https://raw.github.com/envytools/firmware/master/extract_firmware.py
+wget http://us.download.nvidia.com/XFree86/Linux-x86/340.108/NVIDIA-Linux-x86-340.108.run
+sh NVIDIA-Linux-x86-340.108.run --extract-only
+python extract_firmware.py
+mkdir /lib/firmware/nouveau
+cp -d nv* vuc-* /lib/firmware/nouveau/
+```
+
 ## Global Menu Packages
 
 `xfce4-appmenu-plugin`
