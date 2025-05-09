@@ -114,6 +114,27 @@ TO-DO: Add gaps (preference).
 
 `%a %d %b %R`
 
+## Terminal stuff
+
+Write the following file to get padding on the Xfce Terminal: ~/.config/gtk-3.0/gtk.css
+```
+VteTerminal, vte-terminal {
+  padding: 16px;
+}
+```
+
+##Redshift
+
+```
+[redshift]
+temp-day=3500
+temp-night=3500
+fade=1
+location-provider=manual
+lat=
+lon=
+```
+
 # Getting the legacy NVIDIA drivers to work **[NOT WORKING, USE NOUVEAU INSTEAD]**
 
 Install the following dependencies for installing the legacy drivers `apt install build-essential gcc-multilib dkms`
